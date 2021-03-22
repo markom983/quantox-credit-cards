@@ -2,11 +2,12 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { BrowserRouter } from 'react-router-dom'
 import reportWebVitals from './reportWebVitals'
 import { ThemeProvider } from '@material-ui/core/styles'
 import reducers from "./store/reducers"
 import App from "./App"
+import { MuiPickersUtilsProvider } from '@material-ui/pickers'
+import DateFnsUtils from '@date-io/date-fns'
 
 // styles
 import theme from './theme/theme'
@@ -20,9 +21,9 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
+        <MuiPickersUtilsProvider utils={DateFnsUtils}>
           <App />
-        </BrowserRouter>
+        </MuiPickersUtilsProvider>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,
